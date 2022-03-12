@@ -1,10 +1,13 @@
 import * as React from 'react';
 import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
-import RestoreIcon from '@mui/icons-material/Restore';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
 import Paper from '@mui/material/Paper';
+import Icon from '@mdi/react'
+import {
+    mdiCalendarCheck,
+    mdiChartBar,
+    mdiPill
+} from '@mdi/js';
 
 export default function SimpleBottomNavigation() {
   const [value, setValue] = React.useState(0);
@@ -18,9 +21,9 @@ export default function SimpleBottomNavigation() {
         setValue(newValue);
     }}
     >
-    <BottomNavigationAction label="Hoge" icon={<RestoreIcon />} />
-    <BottomNavigationAction label="Fuga" icon={<FavoriteIcon />} />
-    <BottomNavigationAction label="Piyo" icon={<LocationOnIcon />} />
+    <BottomNavigationAction label="今日" icon={<Icon path={mdiCalendarCheck}/>} />
+    <BottomNavigationAction label="進行状況" icon={<Icon path={mdiChartBar}/>} />
+    <BottomNavigationAction label="タスク" icon={<Icon path={mdiPill}/>} />
     </BottomNavigation>
     </Paper>
   );
