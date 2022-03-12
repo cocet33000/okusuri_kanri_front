@@ -1,27 +1,33 @@
 import * as React from 'react';
-import Box from '@mui/material/Box';
+import { useState, useContext } from "react";
 import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
-import RestoreIcon from '@mui/icons-material/Restore';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
+import Paper from '@mui/material/Paper';
+import Icon from '@mdi/react'
+import {
+    mdiCalendarCheck,
+    mdiChartBar,
+    mdiPill
+} from '@mdi/js';
+
+import { MenuContext } from "../App";
 
 export default function SimpleBottomNavigation() {
-  const [value, setValue] = React.useState(0);
+    const { menu, setMenu } = useContext(MenuContext);
 
   return (
-    <Box sx={{ width: 500 }}>
-      <BottomNavigation
-        showLabels
-        value={value}
-        onChange={(event, newValue) => {
-          setValue(newValue);
-        }}
-      >
-        <BottomNavigationAction label="Recents" icon={<RestoreIcon />} />
-        <BottomNavigationAction label="Favorites" icon={<FavoriteIcon />} />
-        <BottomNavigationAction label="Nearby" icon={<LocationOnIcon />} />
-      </BottomNavigation>
-    </Box>
+    <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} elevation={3}>
+    <BottomNavigation
+    showLabels
+    value={menu}
+    onChange={(event, newValue) => {
+        setMenu(newValue);
+    }}
+    >
+    <BottomNavigationAction label="今日" icon={<Icon path={mdiCalendarCheck}/>} value='今日' />
+    <BottomNavigationAction label="進行状況" icon={<Icon path={mdiChartBar}/>} value='進行状況' />
+    <BottomNavigationAction label="タスク" icon={<Icon path={mdiPill}/>} value='タスク' />
+    </BottomNavigation>
+    </Paper>
   );
 }

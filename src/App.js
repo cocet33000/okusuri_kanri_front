@@ -1,25 +1,31 @@
-import logo from './logo.svg';
 import './App.css';
-import SimpleBottomNavigation from './components/BottomNavigation.js';
+import { createContext, useState } from 'react';
+
+import TopBar from './components/TopBar'
+import Container from '@mui/material/Container';
+import Task from './Task'
+import Today from './Today'
+import SimpleBottomNavigation from './components/BottomNavigation';
+
+export const MenuContext = createContext();
 
 function App() {
+  const [menu, setMenu] = useState('今日');
+  const MenuState = {
+    menu,
+    setMenu,
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-      <SimpleBottomNavigation />
+      <MenuContext.Provider value={MenuState}>
+        <TopBar />
+        <Container maxWidth="sm" sx={{marginTop:'10px'}}>
+          {menu=='今日' && <Today /> }
+          {menu=='タスク' && <Task /> }
+        </Container>
+        <SimpleBottomNavigation />
+      </MenuContext.Provider>
     </div>
   );
 }
