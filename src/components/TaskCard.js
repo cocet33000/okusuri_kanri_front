@@ -1,4 +1,5 @@
 import * as React from 'react';
+import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Card from '@mui/material/Card';
@@ -19,21 +20,22 @@ const bull = (
   </Box>
 );
 
-export default function TaskCard() {
+export default function TaskCard(props) {
   return (
-    <Card sx={{ minWidth: 275 }}>
+        <Container maxWidth="sm" sx={{marginTop:'10px'}}>
+    <Card sx={{ minWidth: 275}} >
     <CardContent>
       <Grid container spacing={2}>
         <Grid item xs={4}>
             <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-            お薬A
+              {props.name}
             </Typography>
         </Grid>
         <Grid item xs={8} >
         </Grid>
         <Grid item xs={4}>
             <Typography variant="body2">
-            毎日10時
+              {props.frequency}
             </Typography>
         </Grid>
         <Grid item xs={8} >
@@ -46,5 +48,6 @@ export default function TaskCard() {
       </Grid>
     </CardContent>
     </Card>
+        </Container>
   );
 }

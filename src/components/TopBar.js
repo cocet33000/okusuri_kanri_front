@@ -11,11 +11,11 @@ export default function TopBar() {
     return (
     <Box
         sx={{
-        height: 60,
+        height: 50,
         backgroundColor: 'primary.dark',
         }}
     >
-        <Typography align='left' sx={{color:'white', paddingLeft:'30px', paddingTop:'10px'}} variant="h4" gutterBottom component="div">
+        <Typography align='left' sx={{color:'white', paddingLeft:'20px', paddingTop:'10px'}} variant="h5" gutterBottom component="div">
             {menu}
         </Typography>
     </Box>

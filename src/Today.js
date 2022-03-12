@@ -1,10 +1,10 @@
 import * as React from 'react';
-import TaskItem from './components/TaskItem'
+import TaskItemList from './components/TaskItemList'
 
 export default function Today() {
   return (
     <div>
-      <TaskItem />
+      <TaskItemList />
     </div>
   );
 }
