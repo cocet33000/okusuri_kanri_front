@@ -4,6 +4,7 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import Divider from '@mui/material/Divider';
+import FrequencyPicker from './FrequencyPicker'
 
 const style = {
     width: '100%',
@@ -18,14 +19,14 @@ export default function AddTask() {
         <ListItem button>
             <SelectBox />
         </ListItem>
-        <Divider />
+        <Divider light />
         <ListItem button divider>
             <ListItemText primary="種類" />
         </ListItem>
-        <ListItem button>
-            <ListItemText primary="頻度" />
-        </ListItem>
         <Divider light />
+        <ListItem button>
+            <FrequencyPicker />
+        </ListItem>
         </List>
     );
 }
